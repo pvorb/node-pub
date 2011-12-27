@@ -1,0 +1,25 @@
+# pub
+A command line tool for git powered content management.
+
+## Installation
+
+`npm install pub` or `npm install -g pub`
+
+## Usage
+
+Write some article into a file like described in
+[props](//github.com/pvorb/node-props)
+
+``` bash
+pub add hello-world.mkd
+```
+
+## Bugs and Issues
+
+If you encounter any bugs or issues, feel free to open an issue at
+[github](//github.com/pvorb/node-pub/issues).
+
+## License
+
+This package is licensed under the
+[MIT license](http://vorb.de/license/mit.html).

@@ -14,5 +14,9 @@
   "main": "./pub.js",
   "engines": {
     "node": ">=0.6.0"
+  },
+  "dependencies": {
+    "append": ">=0.1.1",
+    "optimist": ">=0.3.0"
   }
 }
