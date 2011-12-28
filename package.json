@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "append": ">=0.1.1",
+    "async": ">=0.1.15",
+    "confdir": ">=0.0.2",
     "optimist": ">=0.3.0"
   }
 }
