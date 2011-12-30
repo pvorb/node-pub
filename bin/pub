@@ -41,9 +41,11 @@ if (!argv.v && (argv.h || typeof cmd == 'undefined')) {
 }
 
 require('../pub.js')(function (err, pub) {
-  if (argv.v) {
-    console.log(pub.version);
-  } else {
+  if (err)
+    console.log(err);
+  else if (argv.v)
+    console.log(pub.v);
+  else {
     var fn = function () {};
     switch (cmd) {
       case 'add':

@@ -15,6 +15,9 @@
     "url": "https://github.com/pvorb/node-pub/issues"
   },
   "main": "./pub.js",
+  "bin": {
+    "tpl": "./bin/pub"
+  },
   "engines": {
     "node": ">=0.6.0"
   },
