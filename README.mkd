@@ -5,15 +5,19 @@ A command line tool for customizable content management
 
 `npm install -g pub`
 
+## Configuration
+
+See [node-pub-conf](//github.com/pvorb/node-pub-conf).
+
 ## Usage
 
 Write some article into a file.
 
 Publish it:
 
-``` bash
-pub add hello-world.mkd
-```
+
+    pub add hello-world.mkd
+
 
 ## Bugs and Issues
 
