@@ -2,8 +2,11 @@
   "author": "Paul Vorbach <paul@vorb.de> (http://vorb.de/)",
   "name": "pub",
   "description": "A command line tool for customizable content management",
-  "tags": [ "cli", "cms" ],
-  "version": "0.0.0",
+  "tags": [
+    "cli",
+    "cms"
+  ],
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/pvorb/node-pub.git"
@@ -19,5 +22,6 @@
     "append": ">=0.1.1",
     "confdir": ">=0.0.2",
     "optimist": ">=0.3.0"
-  }
+  },
+  "devDependencies": {}
 }
