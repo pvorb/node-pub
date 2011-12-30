@@ -1,14 +1,15 @@
 # pub
-A command line tool for git powered content management.
+A command line tool for customizable content management
 
 ## Installation
 
-`npm install pub` or `npm install -g pub`
+`npm install -g pub`
 
 ## Usage
 
-Write some article into a file like described in
-[props](//github.com/pvorb/node-props)
+Write some article into a file.
+
+Publish it:
 
 ``` bash
 pub add hello-world.mkd
