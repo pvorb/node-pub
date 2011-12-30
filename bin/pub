@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+;(function() {
+
+var cmdHelp = {
+  add: 'pub add [-t|--type] [type] [--draft] [file]',
+  mv:  'pub mv  [file1] [file2]',
+  rm:  'pub rm  [file]',
+  h:   'pub [-h|--help]',
+  v:   'pub [-v|--version]'
+};
+
+var optimist = require('optimist')
+    .usage('Usage:\n'
+        + cmdHelp.add + '\n'
+        + cmdHelp.mv + '\n'
+        + cmdHelp.rm + '\n'
+        + cmdHelp.v + '\n'
+        + cmdHelp.h + '\n')
+    .alias('t', 'type')
+    .describe('t', 'Type of the document')
+    .describe('v', 'Show the version of this script')
+    .boolean('v')
+    .describe('h', 'This message')
+    .boolean('h')
+    .describe('draft', 'Save file as a draft (don’t publish)')
+    .boolean('draft');
+
+var argv = optimist.argv;
+
+var cmd = argv._.shift(); // get first arg
+
+// Show help, if no command provided
+if (!argv.v && (argv.h || typeof cmd == 'undefined')) {
+  if (typeof argv.h == 'string') {
+    console.log(cmdHelp[argv.h]);
+  }
+
+  console.log(optimist.help());
+  process.exit(0);
+}
+
+require('../pub.js')(function (err, pub) {
+  if (argv.v) {
+    console.log(pub.version);
+  } else {
+    var fn = function () {};
+    switch (cmd) {
+      case 'add':
+        fn = pub.add;
+        break;
+      case 'mv':
+        fn = pub.mv;
+        break;
+      case 'rm':
+        fn = pub.rm;
+        break;
+      default:
+        console.error("Unknown command '" + cmd + "'");
+    }
+
+    var files = argv._;
+    delete argv._;
+    delete argv['$0'];
+    var opt = argv;
+
+    fn(files, opt);
+  }
+});
+
+}).call(this);
