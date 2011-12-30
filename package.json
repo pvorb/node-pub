@@ -1,8 +1,8 @@
 {
   "author": "Paul Vorbach <paul@vorb.de> (http://vorb.de/)",
   "name": "pub",
-  "description": "A command line tool for git powered content management",
-  "tags": [ "cli", "git", "cms" ],
+  "description": "A command line tool for customizable content management",
+  "tags": [ "cli", "cms" ],
   "version": "0.0.0",
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "append": ">=0.1.1",
-    "async": ">=0.1.15",
     "confdir": ">=0.0.2",
     "optimist": ">=0.3.0"
   }
