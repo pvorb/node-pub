@@ -26,5 +26,11 @@
     "confdir": ">=0.0.2",
     "optimist": ">=0.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://vorb.de/license/mit.html"
+    }
+  ]
 }
