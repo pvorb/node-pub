@@ -27,15 +27,7 @@ function exp(cmd, confdir) {
     var defaultOpt = {
       cwd: process.cwd()
     };
-    var confOpt;
-    try {
-      confOpt = JSON.parse(fs.readFileSync(path.resolve(confdir,
-        'globals.json'), 'utf8'));
-    } catch (e) {
-      confOpt = {};
-    }
-    confOpt = append(defaultOpt, confOpt);
-    opt = append(confOpt, opt);
+    opt = append(defaultOpt, opt);
 
     if (typeof files == 'string')
       files = [ files ];
