@@ -30,7 +30,7 @@ function exp(cmd, confdir) {
     var confOpt;
     try {
       confOpt = JSON.parse(fs.readFileSync(path.resolve(confdir,
-        'conf.json'), 'utf8'));
+        'globals.json'), 'utf8'));
     } catch (e) {
       confOpt = {};
     }
