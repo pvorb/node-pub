@@ -14,9 +14,7 @@ module.exports = function (cb) {
       cb(err);
     else
       cb(null, {
-        version: 'v0.0.1',
         add: exp('add', dir),
-        mv:  exp('mv', dir),
         rm:  exp('rm', dir)
       });
   });

@@ -3,56 +3,42 @@
 ;(function() {
 
 var cmdHelp = {
-  add: 'pub add [-t|--type] [type] [--draft] [file]',
-  mv:  'pub mv  [file1] [file2]',
+  add: 'pub add [-t|--type] [type] [file]',
   rm:  'pub rm  [file]',
   h:   'pub [-h|--help]',
-  v:   'pub [-v|--version]'
 };
 
 var optimist = require('optimist')
     .usage('Usage:\n'
         + cmdHelp.add + '\n'
-        + cmdHelp.mv + '\n'
         + cmdHelp.rm + '\n'
-        + cmdHelp.v + '\n'
         + cmdHelp.h + '\n')
     .alias('t', 'type')
     .describe('t', 'Type of the document')
-    .describe('v', 'Show the version of this script')
-    .boolean('v')
-    .describe('h', 'This message')
-    .boolean('h')
-    .describe('draft', 'Save file as a draft (don’t publish)')
-    .boolean('draft');
+    .describe('h', 'This message');
 
 var argv = optimist.argv;
 
 var cmd = argv._.shift(); // get first arg
 
 // Show help, if no command provided
-if (!argv.v && (argv.h || typeof cmd == 'undefined')) {
-  if (typeof argv.h == 'string') {
+if (argv.h || typeof cmd == 'undefined') {
+  if (typeof argv.h == 'string')
     console.log(cmdHelp[argv.h]);
-  }
+  else
+    console.log(optimist.help());
 
-  console.log(optimist.help());
   process.exit(0);
 }
 
 require('../pub.js')(function (err, pub) {
   if (err)
     console.log(err);
-  else if (argv.v)
-    console.log(pub.v);
   else {
     var fn = function () {};
     switch (cmd) {
       case 'add':
         fn = pub.add;
-        break;
-      case 'mv':
-        fn = pub.mv;
         break;
       case 'rm':
         fn = pub.rm;
