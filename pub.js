@@ -9,7 +9,7 @@ var append = require('append');
 var confdir = require('confdir');
 
 module.exports = function (cb) {
-  confdir(process.cwd(), 'pub', function(err, dir) {
+  confdir(process.cwd(), 'tpl', function(err, dir) {
     if (err)
       cb(err);
     else
@@ -20,6 +20,7 @@ module.exports = function (cb) {
   });
 };
 
+// exports a command
 function exp(cmd, confdir) {
   return function (files, opt) {
     var defaultOpt = {
